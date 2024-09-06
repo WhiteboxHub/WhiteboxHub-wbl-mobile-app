@@ -14,13 +14,17 @@ class _SignupPageState extends State<SignupPage> {
   TextEditingController _addressController = TextEditingController();
   TextEditingController _zipController = TextEditingController();
   TextEditingController _phoneController = TextEditingController();
-  
+
   String _countryCode = '+1-US';
   String _message = '';
   bool _loading = false;
   String _responseStatus = '';
 
-  List<String> countries = ['+1-US', '+44-UK', '+91-IN']; // Add more country codes as needed
+  List<String> countries = [
+    '+1-US',
+    '+44-UK',
+    '+91-IN'
+  ]; // Add more country codes as needed
 
   void _handleCountryChange(String? selectedValue) {
     if (selectedValue != null) {
@@ -36,7 +40,8 @@ class _SignupPageState extends State<SignupPage> {
         _loading = true;
       });
 
-      final correctCountryCode = _countryCode.replaceAll(RegExp(r'[^\+\d]'), ''); // Removes any non-numeric characters except '+'
+      final correctCountryCode = _countryCode.replaceAll(RegExp(r'[^\+\d]'),
+          ''); // Removes any non-numeric characters except '+'
 
       try {
         // Simulate API request
@@ -191,7 +196,9 @@ class _SignupPageState extends State<SignupPage> {
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter your email address';
-                    } else if (!RegExp(r'^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$').hasMatch(value)) {
+                    } else if (!RegExp(
+                            r'^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$')
+                        .hasMatch(value)) {
                       return 'Please enter a valid email address';
                     }
                     return null;
@@ -209,7 +216,9 @@ class _SignupPageState extends State<SignupPage> {
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Please enter your password';
-                    } else if (!RegExp(r'(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}').hasMatch(value)) {
+                    } else if (!RegExp(
+                            r'(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}')
+                        .hasMatch(value)) {
                       return 'Password must be at least 8 characters long and include uppercase, lowercase, number, and special character';
                     }
                     return null;
@@ -257,7 +266,9 @@ class _SignupPageState extends State<SignupPage> {
                           child: Text(
                             _message,
                             style: TextStyle(
-                              color: _responseStatus == 'success' ? Colors.green : Colors.red,
+                              color: _responseStatus == 'success'
+                                  ? Colors.green
+                                  : Colors.red,
                               fontWeight: FontWeight.bold,
                             ),
                             textAlign: TextAlign.center,

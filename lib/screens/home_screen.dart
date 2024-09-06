@@ -63,13 +63,13 @@ class HomeScreen extends StatelessWidget {
           children: [
             CustomCarousel(),
             Padding(
-              padding: EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(20.0),
               child: Text(
                 'A comprehensive learning ecosystem tailored for developers, machine learning enthusiasts, and data engineers.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: Colors.white70,
-                  fontSize: 16,
+                  // color: Colors.black,
+                  fontSize: 20,
                 ),
               ),
             ),

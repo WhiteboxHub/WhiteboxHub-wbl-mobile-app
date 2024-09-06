@@ -24,7 +24,7 @@ class CourseSection extends StatelessWidget {
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 20,
-              color: Colors.white,
+              // color: Colors.white,
             ),
           ),
         ],
