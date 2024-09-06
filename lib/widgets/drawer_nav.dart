@@ -34,14 +34,7 @@ class DrawerNav extends StatelessWidget {
             onTap: () {
               Navigator.pushReplacementNamed(context, '/home');
             },
-          ),
-          // ListTile(
-          //   leading: Icon(Icons.schedule),
-          //   title: Text('Schedule'),
-          //   onTap: () {
-          //     Navigator.pushReplacementNamed(context, '/schedule');
-          //   },
-          // ),
+          ),          
           ListTile(
             leading: Icon(Icons.record_voice_over),
             title: Text('Recording'),
@@ -56,7 +49,25 @@ class DrawerNav extends StatelessWidget {
               Navigator.pushReplacementNamed(context, '/presentation');
             },
           ),
-          
+           ListTile(
+            leading: authProvider.isAuthenticated ? Icon(Icons.logout) : Icon(Icons.login),
+            title: Text(authProvider.isAuthenticated ? 'Sign Out' : 'Login'),
+            onTap: () {
+              if (authProvider.isAuthenticated) {
+                authProvider.logout();
+                Navigator.of(context).pushReplacementNamed('/home');
+              } else {
+                Navigator.of(context).pushReplacementNamed('/login');
+              }
+            },
+          ), 
+          ListTile(
+            leading: Icon(Icons.person_add),
+            title: Text('signup'),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, '/signup');
+            },
+          ),             
         ],
       ),
     );
